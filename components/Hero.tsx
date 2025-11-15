@@ -76,12 +76,12 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Hidden on mobile */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2"
         >
           <a href="#services" className="flex flex-col items-center space-y-2 group">
             <span className="text-sm text-gray-500 group-hover:text-primary-400 transition-colors">
