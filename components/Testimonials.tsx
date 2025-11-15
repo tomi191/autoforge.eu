@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
@@ -9,42 +9,42 @@ const testimonials = [
   {
     name: 'Иван Петров',
     role: 'Собственик на BMW',
-    avatarUrl: 'https://placehold.co/100x100/3b82f6/white?text=ИП',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Ivan+Petrov&background=3b82f6&color=fff&size=100',
     rating: 5,
     text: 'Невероятно обслужване! Екипът на AutoForge Garage се справи перфектно с ремонта на колата ми. Бързи, коректни и на разумни цени. Препоръчвам!',
   },
   {
     name: 'Мария Георгиева',
     role: 'Шофьор на Audi',
-    avatarUrl: 'https://placehold.co/100x100/ec4899/white?text=МГ',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Maria+Georgieva&background=ec4899&color=fff&size=100',
     rating: 5,
     text: 'Много съм доволна от компютърната диагностика. Откриха проблема веднага и го отстраниха в рамките на деня. Определено ще ги посетя отново.',
   },
   {
     name: 'Георги Димитров',
     role: 'Клиент',
-    avatarUrl: 'https://placehold.co/100x100/f59e0b/white?text=ГД',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Georgi+Dimitrov&background=f59e0b&color=fff&size=100',
     rating: 5,
     text: 'Професионализъм на най-високо ниво. Смениха ми съединителя и колата върви като нова. Благодаря ви, момчета!',
   },
   {
     name: 'Стоян Василев',
     role: 'Шофьор на Mercedes',
-    avatarUrl: 'https://placehold.co/100x100/10b981/white?text=СВ',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Stoyan+Vasilev&background=10b981&color=fff&size=100',
     rating: 5,
     text: 'Отличен сервиз! Направиха цялостна профилактика на колата ми за час и половина. Цените са много коректни.',
   },
   {
     name: 'Елена Тодорова',
     role: 'Клиент',
-    avatarUrl: 'https://placehold.co/100x100/8b5cf6/white?text=ЕТ',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Elena+Todorova&background=8b5cf6&color=fff&size=100',
     rating: 5,
     text: 'Най-добрият автосервиз във Варна! Винаги съм доволна от обслужването и качеството на работата.',
   },
   {
     name: 'Петър Иванов',
     role: 'Собственик на VW',
-    avatarUrl: 'https://placehold.co/100x100/ef4444/white?text=ПИ',
+    avatarUrl: 'https://ui-avatars.com/api/?name=Petar+Ivanov&background=ef4444&color=fff&size=100',
     rating: 5,
     text: 'Поправиха ми климатика за една сутрин. Много бързо и качествено. Препоръчвам!',
   },
@@ -151,7 +151,7 @@ export default function Testimonials() {
 
           {/* Testimonials Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {getVisibleTestimonials().map((testimonial, index) => (
+            {getVisibleTestimonials().map((testimonial) => (
               <motion.div
                 key={testimonial.key}
                 custom={direction}

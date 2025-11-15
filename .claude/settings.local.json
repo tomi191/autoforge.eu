@@ -14,7 +14,9 @@
       "Bash(git branch:*)",
       "Bash(git push:*)",
       "WebSearch",
-      "Bash(npm update:*)"
+      "Bash(npm update:*)",
+      "WebFetch(domain:reactbits.dev)",
+      "mcp__playwright__browser_navigate"
     ],
     "deny": [],
     "ask": []

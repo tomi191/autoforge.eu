@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const partners = [
-  { name: 'Bosch', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Bosch-logotype.svg/200px-Bosch-logotype.svg.png' },
-  { name: 'Castrol', logo: 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b2/Castrol_logo.svg/200px-Castrol_logo.svg.png' },
-  { name: 'Total', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/TotalEnergies_logo.svg/200px-TotalEnergies_logo.svg.png' },
-  { name: 'Gates', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Gates_Corporation_logo.svg/200px-Gates_Corporation_logo.svg.png' },
-  { name: 'Monroe', logo: 'https://logos-world.net/wp-content/uploads/2021/12/Monroe-Logo.png' },
-  { name: 'Repsol', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Repsol_logo.svg/200px-Repsol_logo.svg.png' },
+  { name: 'Bosch', logo: 'https://cdn.worldvectorlogo.com/logos/bosch-2.svg' },
+  { name: 'Castrol', logo: 'https://cdn.worldvectorlogo.com/logos/castrol-2.svg' },
+  { name: 'Shell', logo: 'https://cdn.worldvectorlogo.com/logos/shell-4.svg' },
+  { name: 'Mobil 1', logo: 'https://cdn.worldvectorlogo.com/logos/mobil-6.svg' },
+  { name: 'Michelin', logo: 'https://cdn.worldvectorlogo.com/logos/michelin-1.svg' },
+  { name: 'Brembo', logo: 'https://cdn.worldvectorlogo.com/logos/brembo-2.svg' },
 ];
 
 export default function Partners() {

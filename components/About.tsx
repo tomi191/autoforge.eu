@@ -114,8 +114,8 @@ export default function About() {
             <Image
               src="/images/about-us.svg"
               alt="Екипът на AutoForge Garage"
-              layout="fill"
-              objectFit="cover"
+              fill
+              style={{ objectFit: 'cover' }}
               className="z-0"
             />
           </motion.div>

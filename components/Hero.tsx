@@ -13,9 +13,8 @@ export default function Hero() {
       <Image
         src="/images/hero-bg.jpg"
         alt="Автосервиз AutoForge Garage"
-        layout="fill"
-        objectFit="cover"
-        quality={85}
+        fill
+        style={{ objectFit: 'cover' }}
         className="z-0"
         priority
       />
