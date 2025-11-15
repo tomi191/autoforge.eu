@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: [],
     },
-    sitemap: 'https://autoforge-garage.com/sitemap.xml',
+    sitemap: 'https://autoforge.eu/sitemap.xml',
   };
 }

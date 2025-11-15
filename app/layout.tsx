@@ -9,6 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://autoforge.eu'),
   title: {
     default: 'AutoForge Garage - Автосервиз Варна',
     template: '%s | AutoForge Garage'
@@ -26,10 +27,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AutoForge Garage - Автосервиз Варна',
     description: 'Професионални автомонтьорски услуги във Варна - диагностика, ремонти и поддръжка.',
-    url: 'https://your-website.com', // Заменете с реалния си домейн
+    url: 'https://autoforge.eu',
     siteName: 'AutoForge Garage',
     locale: 'bg_BG',
     type: 'website',
+    images: [
+      {
+        url: '/logo.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'AutoForge Garage Logo',
+      },
+    ],
   },
   robots: {
     index: true,
@@ -43,7 +52,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: '/logo.jpg',
+    apple: '/logo.jpg',
   },
 };
 

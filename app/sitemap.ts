@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://autoforge-garage.com';
+  const baseUrl = 'https://autoforge.eu';
 
   return [
     {

@@ -4,8 +4,9 @@ export default function StructuredData() {
     '@type': 'AutoRepair',
     name: 'AutoForge Garage',
     description: 'Професионален автосервиз за ремонт и поддръжка на автомобили във Варна.',
-    url: 'https://your-website.com', // Заменете с реалния си домейн
+    url: 'https://autoforge.eu',
     telephone: '+359899891170',
+    email: 'info@autoforge.bg',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'бул. "Трети март"',
@@ -33,7 +34,7 @@ export default function StructuredData() {
       },
     ],
     priceRange: '$$',
-    image: 'https://your-website.com/logo.png', // Заменете с реалния си домейн
+    image: 'https://autoforge.eu/logo.jpg',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Автомобилни услуги',

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ChevronDown, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -9,12 +10,16 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16"
     >
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern bg-[size:40px_40px] opacity-20" />
-
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      <Image
+        src="/images/hero-bg.jpg"
+        alt="Автосервиз AutoForge Garage"
+        layout="fill"
+        objectFit="cover"
+        quality={85}
+        className="z-0"
+        priority
+      />
+      <div className="absolute inset-0 bg-black/60 z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
