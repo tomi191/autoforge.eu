@@ -1,27 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star, User } from 'lucide-react';
+import { Star } from 'lucide-react';
+import Image from 'next/image';
 
 const testimonials = [
   {
     name: 'Иван Петров',
     role: 'Собственик на BMW',
-    avatar: User,
+    avatarUrl: 'https://placehold.co/100x100/3b82f6/white?text=ИП',
     rating: 5,
     text: 'Невероятно обслужване! Екипът на AutoForge Garage се справи перфектно с ремонта на колата ми. Бързи, коректни и на разумни цени. Препоръчвам!',
   },
   {
     name: 'Мария Георгиева',
     role: 'Шофьор на Audi',
-    avatar: User,
+    avatarUrl: 'https://placehold.co/100x100/ec4899/white?text=МГ',
     rating: 5,
     text: 'Много съм доволна от компютърната диагностика. Откриха проблема веднага и го отстраниха в рамките на деня. Определено ще ги посетя отново.',
   },
   {
     name: 'Георги Димитров',
     role: 'Клиент',
-    avatar: User,
+    avatarUrl: 'https://placehold.co/100x100/f59e0b/white?text=ГД',
     rating: 5,
     text: 'Професионализъм на най-високо ниво. Смениха ми съединителя и колата върви като нова. Благодаря ви, момчета!',
   },
@@ -76,8 +77,13 @@ export default function Testimonials() {
                 <p className="text-gray-300 italic">&ldquo;{testimonial.text}&rdquo;</p>
               </div>
               <div className="flex items-center mt-auto">
-                <div className="flex-shrink-0">
-                  <testimonial.avatar className="w-12 h-12 p-2 rounded-full bg-primary-500/20 text-primary-400" />
+                <div className="flex-shrink-0 w-14 h-14 relative rounded-full overflow-hidden">
+                  <Image
+                    src={testimonial.avatarUrl}
+                    alt={`Аватар на ${testimonial.name}`}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                  />
                 </div>
                 <div className="ml-4">
                   <h4 className="font-bold text-white">{testimonial.name}</h4>
