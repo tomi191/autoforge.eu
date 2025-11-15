@@ -3,20 +3,20 @@ export default function StructuredData() {
     '@context': 'https://schema.org',
     '@type': 'AutoRepair',
     name: 'AutoForge Garage',
-    description: 'Професионален автосервиз за ремонт и поддръжка на автомобили',
-    url: 'https://autoforge-garage.com',
-    telephone: '+359881234567',
-    email: 'info@autoforge.bg',
+    description: 'Професионален автосервиз за ремонт и поддръжка на автомобили във Варна.',
+    url: 'https://your-website.com', // Заменете с реалния си домейн
+    telephone: '+359899891170',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'ул. Примерна 123',
-      addressLocality: 'София',
+      streetAddress: 'бул. "Трети март"',
+      addressLocality: 'Варна',
+      postalCode: '9000',
       addressCountry: 'BG',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 42.6977,
-      longitude: 23.3219,
+      latitude: 43.237424,
+      longitude: 27.888844,
     },
     openingHoursSpecification: [
       {
@@ -25,13 +25,15 @@ export default function StructuredData() {
         opens: '09:00',
         closes: '18:00',
       },
+       {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Saturday', 'Sunday'],
+        opens: '10:00',
+        closes: '14:00',
+      },
     ],
     priceRange: '$$',
-    image: 'https://autoforge-garage.com/logo.png',
-    sameAs: [
-      'https://facebook.com/autoforge',
-      'https://instagram.com/autoforge',
-    ],
+    image: 'https://your-website.com/logo.png', // Заменете с реалния си домейн
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Автомобилни услуги',

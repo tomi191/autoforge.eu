@@ -1,51 +1,27 @@
-'use client';
-
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
 
 const contactInfo = [
   {
     icon: Phone,
-    label: 'Телефон',
-    value: '+359 88 123 4567',
-    href: 'tel:+359881234567',
+    label: 'Телефон 📞',
+    value: '089 989 1170',
+    href: 'tel:0899891170',
     color: 'from-green-500 to-emerald-500',
   },
   {
-    icon: Mail,
-    label: 'Имейл',
-    value: 'info@autoforge.bg',
-    href: 'mailto:info@autoforge.bg',
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
     icon: MapPin,
-    label: 'Адрес',
-    value: 'ул. Примерна 123, София',
-    href: 'https://maps.google.com',
+    label: 'Адрес 📍',
+    value: 'бул. "Трети март", 9000 Варна',
+    href: 'https://maps.app.goo.gl/NoZTihRYMMtMJW7L9',
     color: 'from-red-500 to-orange-500',
   },
   {
     icon: Clock,
-    label: 'Работно време',
+    label: 'Работно време ⏰',
     value: 'Пн-Пт: 9:00-18:00',
     subValue: 'Събота и Неделя: Почивни дни',
     color: 'from-purple-500 to-pink-500',
-  },
-];
-
-const socialMedia = [
-  {
-    icon: Facebook,
-    label: 'Facebook',
-    href: 'https://facebook.com',
-    color: 'hover:text-blue-500',
-  },
-  {
-    icon: Instagram,
-    label: 'Instagram',
-    href: 'https://instagram.com',
-    color: 'hover:text-pink-500',
   },
 ];
 
@@ -70,7 +46,7 @@ export default function Contact() {
             </span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Свържете се с нас за консултация или запазване на час
+            Имате въпроси или искате да запазите час? Свържете се с нас!
           </p>
         </motion.div>
 
@@ -124,79 +100,73 @@ export default function Contact() {
           })}
         </div>
 
-        {/* Map & Social Media */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Map Placeholder */}
+        {/* Map & Emergency & Social */}
+        <div className="grid md:grid-cols-5 gap-6">
+          {/* Map */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative bg-gradient-to-br from-accent-900/50 to-accent-950/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-accent-700/30 min-h-[300px] flex items-center justify-center overflow-hidden group"
+            className="md:col-span-3 relative bg-gradient-to-br from-accent-900/50 to-accent-950/50 backdrop-blur-sm rounded-2xl p-1 border border-accent-700/30 min-h-[400px] overflow-hidden group"
           >
-            {/* Gradient Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-accent-500/10" />
-
-            <div className="relative text-center">
-              <MapPin className="w-16 h-16 text-primary-400 mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-white mb-2">Нашето местоположение</h3>
-              <p className="text-gray-400 mb-4">ул. Примерна 123, София</p>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-lg font-semibold transition-all duration-300"
-              >
-                Вижте в Google Maps
-              </a>
-            </div>
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d422.76620407732077!2d27.888844280890563!3d43.23742407563568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a455ee9ee0f92d%3A0xb6c20a36426bf01f!2sAutoForge%20Garage!5e1!3m2!1sen!2sbg!4v1763222228912!5m2!1sen!2sbg" 
+              width="100%" 
+              height="100%" 
+              style={{ border:0 }} 
+              allowFullScreen={true}
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-2xl"
+            ></iframe>
           </motion.div>
 
-          {/* Social Media & Additional Info */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            {/* Social Media */}
-            <div className="bg-gradient-to-br from-accent-900/50 to-accent-950/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-accent-700/30">
-              <h3 className="text-xl font-bold text-white mb-4">Последвайте ни</h3>
-              <div className="flex space-x-4">
-                {socialMedia.map((social, index) => {
-                  const Icon = social.icon;
-                  return (
-                    <a
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`flex items-center justify-center w-12 h-12 rounded-lg bg-accent-800/50 border border-accent-700/30 ${social.color} transition-all duration-300 hover:scale-110`}
-                      aria-label={social.label}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
-
+          <div className="md:col-span-2 flex flex-col gap-6">
             {/* Emergency Contact */}
-            <div className="bg-gradient-to-br from-red-900/20 to-orange-900/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-red-700/30">
-              <h3 className="text-xl font-bold text-white mb-2">Аварийна помощ</h3>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex-1 bg-gradient-to-br from-red-900/20 to-orange-900/20 backdrop-blur-sm rounded-2xl p-6 border border-red-700/30 flex flex-col justify-center items-center text-center"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2">Аварийна помощ 🆘</h3>
               <p className="text-gray-400 mb-4">
-                Налични сме 24/7 за консултации и аварийна помощ на пътя
+                На разположение сме 24/7 за спешни случаи и консултации.
               </p>
               <a
-                href="tel:+359881234567"
-                className="inline-flex items-center space-x-2 text-red-400 hover:text-red-300 font-semibold transition-colors"
+                href="tel:0899891170"
+                className="inline-flex items-center space-x-2 text-red-400 hover:text-red-300 font-semibold transition-colors text-xl"
               >
-                <Phone className="w-5 h-5" />
-                <span>+359 88 123 4567</span>
+                <Phone className="w-6 h-6" />
+                <span>089 989 1170</span>
               </a>
-            </div>
-          </motion.div>
+            </motion.div>
+            
+            {/* Social Media */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex-1 bg-gradient-to-br from-blue-900/20 to-cyan-900/20 backdrop-blur-sm rounded-2xl p-6 border border-blue-700/30 flex flex-col justify-center items-center text-center"
+            >
+              <h3 className="text-2xl font-bold text-white mb-2">Последвайте ни 👥</h3>
+              <p className="text-gray-400 mb-4">
+                Присъединете се към нашата Facebook група за промоции и новини.
+              </p>
+              <a
+                href="https://www.facebook.com/profile.php?id=61583678194221"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors text-lg"
+              >
+                <Facebook className="w-6 h-6" />
+                <span>Facebook Група</span>
+              </a>
+            </motion.div>
+          </div>
         </div>
 
         {/* Footer */}

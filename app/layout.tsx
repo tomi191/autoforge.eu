@@ -10,11 +10,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'AutoForge Garage - Професионален Автосервиз',
+    default: 'AutoForge Garage - Автосервиз Варна',
     template: '%s | AutoForge Garage'
   },
-  description: 'AutoForge Garage - вашият доверен партньор за професионална автомобилна поддръжка и ремонт. Специализирани услуги за климатици, спирачки, окачване, диагностика и много други.',
-  keywords: ['автосервиз', 'ремонт на автомобили', 'диагностика', 'климатици', 'спирачки', 'окачване', 'вулканизация', 'автомобилни услуги'],
+  description: 'AutoForge Garage е вашият доверен автосервиз във Варна. Предлагаме качествена компютърна диагностика, ремонт на климатици, спирачки, окачване, смяна на масла и гуми.',
+  keywords: ['автосервиз варна', 'ремонт на коли варна', 'компютърна диагностика варна', 'автоклиматици варна', 'ремонт спирачки варна', 'смяна масла варна', 'вулканизатор варна', 'автомобилни услуги варна', 'AutoForge Garage'],
   authors: [{ name: 'AutoForge Garage' }],
   creator: 'AutoForge Garage',
   publisher: 'AutoForge Garage',
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'AutoForge Garage - Професионален Автосервиз',
-    description: 'Професионални автомобилни услуги - диагностика, ремонт, поддръжка',
-    url: 'https://autoforge-garage.com',
+    title: 'AutoForge Garage - Автосервиз Варна',
+    description: 'Професионални автомонтьорски услуги във Варна - диагностика, ремонти и поддръжка.',
+    url: 'https://your-website.com', // Заменете с реалния си домейн
     siteName: 'AutoForge Garage',
     locale: 'bg_BG',
     type: 'website',

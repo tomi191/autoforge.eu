@@ -18,8 +18,9 @@ export default function Navigation() {
   const navItems = [
     { href: '#hero', label: 'Начало' },
     { href: '#services', label: 'Услуги' },
-    { href: '#about', label: 'За Нас' },
-    { href: '#contact', label: 'Контакти' },
+    { href: '#about', label: 'За нас' },
+    { href: '#testimonials', label: 'Отзиви' },
+    { href: '#contact', label: 'Контакт' },
   ];
 
   return (
@@ -39,7 +40,7 @@ export default function Navigation() {
               <div className="absolute inset-0 bg-primary-400 blur-xl opacity-20 group-hover:opacity-30 transition-opacity" />
             </div>
             <span className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary-300 to-primary-500 bg-clip-text text-transparent">
-              AutoForge
+              AutoForge Garage
             </span>
           </a>
 
