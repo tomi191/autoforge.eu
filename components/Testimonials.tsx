@@ -73,7 +73,7 @@ export default function Testimonials() {
               className="bg-gradient-to-br from-accent-900/50 to-accent-950/50 backdrop-blur-sm rounded-2xl p-8 border border-accent-700/30 flex flex-col"
             >
               <div className="flex-grow mb-4">
-                <p className="text-gray-300 italic">"{testimonial.text}"</p>
+                <p className="text-gray-300 italic">&ldquo;{testimonial.text}&rdquo;</p>
               </div>
               <div className="flex items-center mt-auto">
                 <div className="flex-shrink-0">

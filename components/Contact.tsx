@@ -1,5 +1,7 @@
+'use client';
+
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Facebook } from 'lucide-react';
+import { Phone, MapPin, Clock, Facebook } from 'lucide-react';
 
 const contactInfo = [
   {
