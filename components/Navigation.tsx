@@ -18,8 +18,10 @@ export default function Navigation() {
   const navItems = [
     { href: '#hero', label: 'Начало' },
     { href: '#services', label: 'Услуги' },
+    { href: '#process', label: 'Процес' },
     { href: '#about', label: 'За нас' },
     { href: '#testimonials', label: 'Отзиви' },
+    { href: '#faq', label: 'Въпроси' },
     { href: '#contact', label: 'Контакт' },
   ];
 

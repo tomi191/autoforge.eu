@@ -21,6 +21,23 @@ export default function Hero() {
       />
       <div className="absolute inset-0 bg-black/60 z-0" />
 
+      {/* Animated Gradient Overlay */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        animate={{
+          background: [
+            'linear-gradient(45deg, rgba(67,95,136,0.2) 0%, rgba(29,37,53,0.3) 100%)',
+            'linear-gradient(90deg, rgba(29,37,53,0.3) 0%, rgba(67,95,136,0.2) 100%)',
+            'linear-gradient(135deg, rgba(67,95,136,0.2) 0%, rgba(29,37,53,0.3) 100%)',
+          ],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          repeatType: 'reverse',
+        }}
+      />
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

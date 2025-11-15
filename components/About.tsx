@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { Award, Clock, Users, Shield } from 'lucide-react';
 import Image from 'next/image';
 
@@ -8,37 +9,71 @@ const stats = [
   {
     icon: Award,
     value: '10+',
+    number: 10,
+    suffix: '+',
     label: 'Години опит',
     color: 'from-yellow-500 to-amber-500',
   },
   {
     icon: Users,
     value: '5000+',
+    number: 5000,
+    suffix: '+',
     label: 'Доволни клиенти',
     color: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Clock,
     value: '24/7',
+    number: 0,
+    suffix: '',
     label: 'Консултации',
     color: 'from-green-500 to-emerald-500',
+    noAnimation: true,
   },
   {
     icon: Shield,
     value: '100%',
+    number: 100,
+    suffix: '%',
     label: 'Гаранция',
     color: 'from-purple-500 to-pink-500',
   },
 ];
 
-const partners = [
-  'Bosch',
-  'Castrol',
-  'Total',
-  'Gates',
-  'Monroe',
-  'Repsol',
-];
+// Animated Counter Component
+function AnimatedCounter({ end, suffix, noAnimation }: { end: number; suffix: string; noAnimation?: boolean }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (isInView && !noAnimation) {
+      let start = 0;
+      const duration = 2000;
+      const increment = end / (duration / 16);
+
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= end) {
+          setCount(end);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, end, noAnimation]);
+
+  return (
+    <span ref={ref}>
+      {noAnimation ? '' : count}
+      {suffix}
+    </span>
+  );
+}
 
 export default function About() {
   return (
@@ -106,7 +141,11 @@ export default function About() {
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold text-white mb-2">
-                  {stat.value}
+                  {stat.noAnimation ? (
+                    stat.value
+                  ) : (
+                    <AnimatedCounter end={stat.number} suffix={stat.suffix} noAnimation={stat.noAnimation} />
+                  )}
                 </div>
                 <div className="text-gray-400 text-sm md:text-base">
                   {stat.label}
@@ -119,61 +158,33 @@ export default function About() {
           })}
         </motion.div>
 
-        {/* Why Choose Us & Partners */}
-        <div className="grid md:grid-cols-2 gap-8">
-            {/* Why Choose Us */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="space-y-6"
-            >
-              <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 border border-primary-700/30">
-                <h4 className="text-xl font-bold text-white mb-3">Качество ⭐</h4>
-                <p className="text-gray-400">
-                  Използваме само оригинални части и висококачествени материали от водещи производители.
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 border border-primary-700/30">
-                <h4 className="text-xl font-bold text-white mb-3">Професионализъм 👨‍🔧</h4>
-                <p className="text-gray-400">
-                  Нашият екип се състои от сертифицирани специалисти с богат опит.
-                </p>
-              </div>
-              <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 border border-primary-700/30">
-                <h4 className="text-xl font-bold text-white mb-3">Гаранция 🛡️</h4>
-                <p className="text-gray-400">
-                  Предлагаме гаранция на всички извършени услуги и използвани части.
-                </p>
-              </div>
-            </motion.div>
-            {/* Partners Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-gradient-to-br from-accent-900/30 to-accent-950/30 backdrop-blur-sm rounded-2xl p-8 border border-accent-700/30"
-            >
-              <h3 className="text-2xl font-bold text-center mb-8 text-white">
-                Нашите Партньори
-              </h3>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
-                {partners.map((partner, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.1 }}
-                    className="flex items-center justify-center p-4 bg-accent-800/50 rounded-xl border border-accent-700/30 hover:border-primary-500/50 transition-all duration-300"
-                  >
-                    <span className="text-lg font-semibold text-gray-300 hover:text-primary-400 transition-colors">
-                      {partner}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-        </div>
+        {/* Why Choose Us */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="grid md:grid-cols-3 gap-6"
+        >
+          <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary-700/30">
+            <h4 className="text-xl font-bold text-white mb-3">Качество ⭐</h4>
+            <p className="text-gray-400">
+              Използваме само оригинални части и висококачествени материали от водещи производители.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary-700/30">
+            <h4 className="text-xl font-bold text-white mb-3">Професионализъм 👨‍🔧</h4>
+            <p className="text-gray-400">
+              Нашият екип се състои от сертифицирани специалисти с богат опит.
+            </p>
+          </div>
+          <div className="bg-gradient-to-br from-primary-900/20 to-primary-950/20 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-primary-700/30">
+            <h4 className="text-xl font-bold text-white mb-3">Гаранция 🛡️</h4>
+            <p className="text-gray-400">
+              Предлагаме гаранция на всички извършени услуги и използвани части.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
